@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DomainSecurityComponent implements OnInit {
 
-  // Checklist para el dominio de seguridad
+  // Checklist para el dominio de seguridad en tablas
 phaseTasks= [
     {
       phase: 'Quick Wins',
