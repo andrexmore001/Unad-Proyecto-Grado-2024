@@ -17,21 +17,21 @@ phaseTasks= [
           implementationDate: '',
           observations: 'Implementar la autenticación multifactor.',
           documents: ['Documento de implementación'],
-          avance: '15%'
+          avance: 100
         },
         {
           implemented: false,
           implementationDate: '',
           observations: 'Configurar la alarma de facturación para alertas.',
           documents: ['Guía de configuración'],
-          avance: '25%'
+          avance:25
         },
         {
           implemented: false,
           implementationDate: '',
           observations: 'Analizar el acceso de IAM para detectar permisos innecesarios.',
           documents: ['Informe de análisis'],
-          avance: '10%'
+          avance: 10
         },
       ]
     },
@@ -45,4 +45,15 @@ phaseTasks= [
   onFileSelected(event: any) {
     console.log(event);
   }
+  updateAvance(task: any) {
+    debugger
+    if (task.estado === 'enCurso' && (task.avance < 0 || task.avance > 100)) {
+      // Restringir el valor de avance a un rango válido si el estado es 'enCurso'
+      task.avance = Math.min(Math.max(task.avance, 0), 100);
+    } else if (task.estado === 'implementado') {
+      // Establecer el avance al 100% si el estado es 'implementado'
+      task.avance = 100;
+    }
+  }
+
 }
