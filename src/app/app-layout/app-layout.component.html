@@ -1,0 +1,25 @@
+<header>
+  <div class="header-content">
+    <h1>Modelo de Madurez de AWS</h1>
+    <nav>
+      <ul>
+        <li><a routerLink="/security"><i class="fas fa-shield-alt"></i> Seguridad</a></li>
+        <li><a routerLink="/reliability"><i class="fas fa-cogs"></i> Confiabilidad</a></li>
+        <li><a routerLink="/performance"><i class="fas fa-tachometer-alt"></i> Rendimiento</a></li>
+        <li><a routerLink="/cost"><i class="fas fa-dollar-sign"></i> Coste</a></li>
+        <li><a routerLink="/operational-excellence"><i class="fas fa-rocket"></i> Excelencia Operacional</a></li>
+      </ul>
+    </nav>
+    <!-- Agrega el botón de logout -->
+    <button (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i> Logout
+    </button>
+  </div>
+</header>
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer>
+  <p>© {{ currentYear }} Modelo de Madurez de AWS - Universidad Nacional Abierta y a Distancia</p>
+</footer>

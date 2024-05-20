@@ -1,0 +1,26 @@
+<h2>Seguridad</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Fase</th>
+      <th>Implementado</th>
+      <th>Fecha de Implementación</th>
+      <th>Observaciones</th>
+      <th>Documentos</th>
+      <th>Avance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let phaseTask of phaseTasks">
+      <tr *ngFor="let task of phaseTask.tasks">
+        <td>{{ phaseTask.phase }}</td>
+        <td><input type="checkbox" [value]="task.implemented"></td>
+        <td><input type="date" [value]="task.implementationDate"></td>
+        <td><input type="text" [value]="task.observations"></td>
+        <td><input type="file" multiple (change)="onFileSelected($event)"></td>
+        <td>{{ task.avance }}</td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
