@@ -9,6 +9,7 @@ import { DomainOperationalExcellenceComponent } from './domain-operational-excel
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
+import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -23,9 +24,10 @@ const routes: Routes = [
       { path: 'performance', component: DomainPerformanceComponent, canActivate: [AuthGuard] },
       { path: 'cost', component: DomainCostComponent, canActivate: [AuthGuard] },
       { path: 'operational-excellence', component: DomainOperationalExcellenceComponent, canActivate: [AuthGuard] },
+      { path: 'report', component: ReportsComponent, canActivate: [AuthGuard] },
     ]
   },
-  { path: '**', redirectTo: '/login' } // Redirige a la página de inicio de sesión si la URL es inválida
+  { path: '**', redirectTo: '' } // Redirige a la página de inicio de sesión si la URL es inválida
 ];
 
 

@@ -12,8 +12,10 @@ import { DomainOperationalExcellenceComponent } from './domain-operational-excel
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ReportsComponent } from './reports/reports.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     DomainCostComponent,
     DomainOperationalExcellenceComponent,
     AppLayoutComponent,
-    LoginComponent
+    LoginComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
