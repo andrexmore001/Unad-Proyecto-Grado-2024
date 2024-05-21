@@ -13,7 +13,7 @@ import { ReportsComponent } from './reports/reports.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'security', component: DomainSecurityComponent},
+
   {
     path: '',
     component: AppLayoutComponent,
@@ -22,6 +22,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent, canActivate: [AuthGuard] },
       { path: 'reliability', component: DomainReliabilityComponent, canActivate: [AuthGuard] },
       { path: 'performance', component: DomainPerformanceComponent, canActivate: [AuthGuard] },
+      { path: 'security', component: DomainSecurityComponent, canActivate: [AuthGuard]},
       { path: 'cost', component: DomainCostComponent, canActivate: [AuthGuard] },
       { path: 'operational-excellence', component: DomainOperationalExcellenceComponent, canActivate: [AuthGuard] },
       { path: 'report', component: ReportsComponent, canActivate: [AuthGuard] },
