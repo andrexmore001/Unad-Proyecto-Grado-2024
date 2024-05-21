@@ -6,7 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./domain-cost.component.css']
 })
 export class DomainCostComponent implements OnInit {
-
  phaseTasksCostos = [
     {
       phase: 'Quick Wins',

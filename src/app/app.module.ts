@@ -15,6 +15,7 @@ import { AuthGuard } from './auth.guard';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReportsComponent } from './reports/reports.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ReportsComponent } from './reports/reports.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    DataTablesModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
