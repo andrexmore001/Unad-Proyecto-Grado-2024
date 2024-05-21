@@ -1,27 +1,70 @@
 <h2>Confiabilidad</h2>
 
-
-<table>
+<table id="example">
   <thead>
     <tr>
       <th>Fase</th>
       <th>Implementado</th>
       <th>Fecha de Implementación</th>
+      <th>Tarea</th>
       <th>Observaciones</th>
       <th>Documentos</th>
-      <th>Avance</th>
+      <th>% de Avance</th>
+      <th>Acciones</th>
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let phaseTask of phaseTasks">
+    <ng-container *ngFor="let phaseTask of phaseTasksSecurity">
       <tr *ngFor="let task of phaseTask.tasks">
         <td>{{ phaseTask.phase }}</td>
-        <td><input type="checkbox" [value]="task.implemented"></td>
+        <td>
+          <label>
+            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="true" (change)="updateAvance('Implementado',task)"> Implementado
+          </label>
+          <label>
+            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="false" (change)="updateAvance('Curso',task)"> En curso
+          </label>
+        </td>
         <td><input type="date" [value]="task.implementationDate"></td>
-        <td><input type="text" [value]="task.observations"></td>
-        <td><input type="file" multiple (change)="onFileSelected($event)"></td>
-        <td>{{ task.avance }}</td>
+        <td>{{task.tarea}}</td>
+        <td>{{task.observations}}</td>
+        <td><input type="file" multiple (change)="onFileSelected($event, task)"></td>
+        <td>
+          <input *ngIf="!task.implemented" type="number"  [(ngModel)]="task.avance" min="0" max="100">
+          <span *ngIf="task.implemented">100%</span>
+        </td>
+        <td>
+          <button (click)="openEditForm(task)">
+            <span>{{task.editar}}</span>
+          </button>
+        </td>
       </tr>
     </ng-container>
   </tbody>
 </table>
+
+<div id="editTaskModal" class="modal">
+  <div class="modal-content">
+    <button class="close" (click)="closeModal()">&times;</button>
+    <h2>Editar Tarea</h2>
+    <form [formGroup]="editForm">
+      <div>
+        <label for="tarea">Tarea:</label>
+        <input type="text" id="tarea" formControlName="tarea">
+      </div>
+      <div>
+        <label for="observaciones">Observaciones:</label>
+        <textarea id="observaciones" formControlName="observaciones"></textarea>
+      </div>
+      <div>
+        <label for="fechaImplementación">Fecha de Implementación:</label>
+        <input type="date" id="fechaImplementación" formControlName="fechaImplementación">
+      </div>
+      <div>
+        <label for="avance">Avance (%):</label>
+        <input type="number" id="avance" formControlName="avance" min="0" max="100">
+      </div>
+      <button type="button">Guardar</button>
+    </form>
+  </div>
+</div>

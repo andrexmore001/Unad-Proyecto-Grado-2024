@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-domain-cost',
@@ -6,30 +8,110 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./domain-cost.component.css']
 })
 export class DomainCostComponent implements OnInit {
- phaseTasksCostos = [
+  editForm!: FormGroup;
+  // Checklist para el dominio de seguridad en tablas
+  phaseTasksSecurity = [
     {
-      phase: 'Quick Wins',
+      phase: 'Foundational',
       tasks: [
         {
-          implemented: true,
+          implemented: false,
           implementationDate: '',
-          observations: 'Optimización de instancias bajo uso',
-          documents: ['Documento de análisis de uso'],
-          avance: 100
+          tarea: 'Multi-Factor Authentication',
+          observations:'' ,
+          documents: ['Documento de implementación'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Uso de Savings Plans',
-          documents: ['Guía de Savings Plans'],
-          avance: 0
+          tarea: 'IAM Access Analyzer',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Eliminación de recursos no utilizados',
-          documents: ['Informe de recursos no utilizados'],
-          avance: 0
+          tarea: 'Security Hub: Buenas prácticas',
+          observations:'' ,
+          documents: ['Informe de análisis'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'WAF con reglas gestionadas',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Evitar el uso de Root',
+          observations:'' ,
+          documents: ['Informe de análisis'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'GuardDuty: Detección de amenazas',
+          observations:'' ,
+          documents: ['Documento de implementación'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'CloudTrail: Auditoría',
+          observations:'' ,
+          documents: ['Informe de auditoría'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Limitar los Security Groups',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Asignar contactos de seguridad',
+          observations:'' ,
+          documents: ['Documento de implementación'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Macie: Políticas de datos',
+          observations:'' ,
+          documents: ['Informe de políticas'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'AWS Trusted Advisor',
+          observations:'' ,
+          documents: ['Informe de análisis'],
+          avance: 0,
+          editar:'editar'
         }
       ]
     },
@@ -39,23 +121,56 @@ export class DomainCostComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Consolidación de facturas',
-          documents: ['Guía de consolidación de facturas'],
-          avance: 0
+          tarea: 'KMS: Cifrado de Datos',
+          observations:'' ,
+          documents: ['Documento de implementación'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Uso de instancias reservadas',
-          documents: ['Informe de instancias reservadas'],
-          avance: 0
+          tarea: 'GuardDuty: Investigar hallazgos/S3',
+          observations:'' ,
+          documents: ['Informe de investigación'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Optimización de almacenamiento',
-          documents: ['Guía de optimización de almacenamiento'],
-          avance: 0
+          tarea: 'Seguridad en Desarrollo',
+          observations:'' ,
+          documents: ['Guía de seguridad en desarrollo'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Sin Secretos en Código',
+          observations:'' ,
+          documents: ['Guía de implementación'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'SCPs: Políticas Organizacionales',
+          observations:'' ,
+          documents: ['Documento de políticas'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Segmentación de redes (VPCs)',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
         }
       ]
     },
@@ -65,23 +180,101 @@ export class DomainCostComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Uso de Spot Instances',
-          documents: ['Guía de Spot Instances'],
-          avance: 0
+          tarea:'Anti-Malware / EDR',
+          observations:'' ,
+          documents: ['Guía de implementación'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Automatización de escalado',
-          documents: ['Informe de escalado automatizado'],
-          avance: 0
+          tarea: 'Análisis de flujos de red',
+          observations:'',
+          documents: ['Informe de análisis'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Optimización de bases de datos',
-          documents: ['Guía de optimización de bases de datos'],
-          avance: 0
+          tarea: 'Automatizar corrección de desvíos',
+          observations:'',
+          documents: ['Guía de automatización'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Automatizaciones en seguridad',
+          observations:'',
+          documents: ['Informe de automatización'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'CIAM: Usuarios de aplicaciones',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Security Champions',
+          observations:'' ,
+          documents: ['Plan de implementación'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Integración con SIEM/SOAR',
+          observations:'' ,
+          documents: ['Informe de integración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Modelado de Amenazas',
+          observations:'' ,
+          documents: ['Informe de modelado'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Shield Advanced: Mitigación DDoS',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Infraestructura como código',
+          observations:'' ,
+          documents: ['Guía de implementación'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'WAF con reglas custom',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
         }
       ]
     },
@@ -91,51 +284,136 @@ export class DomainCostComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Uso de herramientas de monitoreo y alertas',
-          documents: ['Informe de monitoreo'],
-          avance: 0
+          tarea: 'Red Team',
+          observations:'' ,
+          documents: ['Informe de pruebas'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Optimización continua de costos',
-          documents: ['Guía de optimización continua'],
-          avance: 0
+          tarea: 'Detective: Análisis de causa raíz',
+          observations:'' ,
+          documents: ['Informe de análisis'],
+          avance: 0,
+          editar:'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Uso de herramientas de análisis de costos',
-          documents: ['Informe de análisis de costos'],
-          avance: 0
+          tarea: 'Amazon Fraud Detector',
+          observations:'' ,
+          documents: ['Informe de configuración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Blue Team',
+          observations:'' ,
+          documents: ['Informe de pruebas'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Control de accesos según contexto',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'DevSecOps',
+          observations:'' ,
+          documents: ['Guía de implementación'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Feeds de inteligencia',
+          observations:'' ,
+          documents: ['Informe de inteligencia'],
+          avance: 0,
+          editar:'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'IAM Pipeline',
+          observations:'' ,
+          documents: ['Guía de configuración'],
+          avance: 0,
+          editar:'editar'
         }
       ]
     }
   ];
 
 
-  constructor() { }
+
+
+  constructor(private http: HttpClient,private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.editForm = this.fb.group({
+      tarea: [''],
+      observaciones: [''],
+      fechaImplementación:[],
+      avance:[]
+    });
+    this.data();
   }
-
   onFileSelected(event: any, task: any): void {
     const files = event.target.files;
     for (let i = 0; i < files.length; i++) {
       task.documents.push(files[i].name);
     }
   }
+  updateAvance(event:string,task: any) {
+    debugger
+    if (event==="Curso")
+      {task.avance = 0;}
+    else
+    {task.avance = 100;}
 
-  updateAvance(task: any): void {
-    if (task.implemented) {
-      debugger
-      task.avance = 100;
-    } else {
-      debugger
-      if (task.avance === 100) {
-        task.avance = 0;
-      }
-    }
   }
 
+  data(){
+  jQuery(function() {$("#example").DataTable(); })
+ }
+
+ ngAfterViewInit() {
+  this.data();
+ }
+
+ openEditForm(task: any) {
+  const modal = document.getElementById('editTaskModal'); // Suponiendo que tienes un elemento modal con este ID
+  if (modal) {
+    modal.style.display = 'block'; // Mostrar el modal
+
+    // Poblar el formulario con datos de la tarea
+    this.editForm.controls['tarea'].setValue(task.tarea);
+    this.editForm.controls['observaciones'].setValue(task.observaciones);
+    this.editForm.controls['fechaImplementación'].setValue(task.fechaImplementación);
+    this.editForm.controls['avance'].setValue(task.avance);
+  }
 }
+
+closeModal() {
+  debugger
+  const modal = document.getElementById('editTaskModal');
+  if (modal) {
+    modal.style.display = 'none'; // Oculta el modal
+    // Limpia los valores del formulario (opcional)
+    this.editForm.reset();
+  }
+}
+  }
