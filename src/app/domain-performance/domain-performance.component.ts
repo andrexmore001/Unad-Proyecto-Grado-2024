@@ -11,106 +11,25 @@ export class DomainPerformanceComponent implements OnInit {
   editForm!: FormGroup;
   phaseTasksSecurity = [
     {
-      phase: 'Foundational',
+      phase: 'Quick Wins',
       tasks: [
         {
           implemented: false,
           implementationDate: '',
-          tarea: 'Multi-Factor Authentication',
-          observations:'' ,
-          documents: ['Documento de implementación'],
+          tarea: 'Monitoreo del rendimiento de aplicaciones',
+          observations: '',
+          documents: ['Informe de monitoreo'],
           avance: 0,
-          editar:'editar'
+          editar: 'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          tarea: 'IAM Access Analyzer',
-          observations:'' ,
-          documents: ['Guía de configuración'],
+          tarea: 'Optimización del tiempo de respuesta',
+          observations: '',
+          documents: ['Guía de optimización'],
           avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Security Hub: Buenas prácticas',
-          observations:'' ,
-          documents: ['Informe de análisis'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'WAF con reglas gestionadas',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Evitar el uso de Root',
-          observations:'' ,
-          documents: ['Informe de análisis'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'GuardDuty: Detección de amenazas',
-          observations:'' ,
-          documents: ['Documento de implementación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'CloudTrail: Auditoría',
-          observations:'' ,
-          documents: ['Informe de auditoría'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Limitar los Security Groups',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Asignar contactos de seguridad',
-          observations:'' ,
-          documents: ['Documento de implementación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Macie: Políticas de datos',
-          observations:'' ,
-          documents: ['Informe de políticas'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'AWS Trusted Advisor',
-          observations:'' ,
-          documents: ['Informe de análisis'],
-          avance: 0,
-          editar:'editar'
+          editar: 'editar'
         }
       ]
     },
@@ -120,56 +39,20 @@ export class DomainPerformanceComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          tarea: 'KMS: Cifrado de Datos',
-          observations:'' ,
-          documents: ['Documento de implementación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'GuardDuty: Investigar hallazgos/S3',
-          observations:'' ,
-          documents: ['Informe de investigación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Seguridad en Desarrollo',
-          observations:'' ,
-          documents: ['Guía de seguridad en desarrollo'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Sin Secretos en Código',
-          observations:'' ,
+          tarea: 'Implementación de caché',
+          observations: '',
           documents: ['Guía de implementación'],
           avance: 0,
-          editar:'editar'
+          editar: 'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          tarea: 'SCPs: Políticas Organizacionales',
-          observations:'' ,
-          documents: ['Documento de políticas'],
+          tarea: 'Estrategia de balanceo de carga',
+          observations: '',
+          documents: ['Plan de balanceo'],
           avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Segmentación de redes (VPCs)',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
+          editar: 'editar'
         }
       ]
     },
@@ -179,101 +62,20 @@ export class DomainPerformanceComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          tarea:'Anti-Malware / EDR',
-          observations:'' ,
+          tarea: 'Optimización de consultas a la base de datos',
+          observations: '',
+          documents: ['Informe de optimización'],
+          avance: 0,
+          editar: 'editar'
+        },
+        {
+          implemented: false,
+          implementationDate: '',
+          tarea: 'Implementación de CDN',
+          observations: '',
           documents: ['Guía de implementación'],
           avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Análisis de flujos de red',
-          observations:'',
-          documents: ['Informe de análisis'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Automatizar corrección de desvíos',
-          observations:'',
-          documents: ['Guía de automatización'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Automatizaciones en seguridad',
-          observations:'',
-          documents: ['Informe de automatización'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'CIAM: Usuarios de aplicaciones',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Security Champions',
-          observations:'' ,
-          documents: ['Plan de implementación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Integración con SIEM/SOAR',
-          observations:'' ,
-          documents: ['Informe de integración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Modelado de Amenazas',
-          observations:'' ,
-          documents: ['Informe de modelado'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Shield Advanced: Mitigación DDoS',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Infraestructura como código',
-          observations:'' ,
-          documents: ['Guía de implementación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'WAF con reglas custom',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
+          editar: 'editar'
         }
       ]
     },
@@ -283,74 +85,20 @@ export class DomainPerformanceComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          tarea: 'Red Team',
-          observations:'' ,
-          documents: ['Informe de pruebas'],
+          tarea: 'Monitoreo avanzado del rendimiento',
+          observations: '',
+          documents: ['Informe de monitoreo'],
           avance: 0,
-          editar:'editar'
+          editar: 'editar'
         },
         {
           implemented: false,
           implementationDate: '',
-          tarea: 'Detective: Análisis de causa raíz',
-          observations:'' ,
-          documents: ['Informe de análisis'],
+          tarea: 'Estrategia de mejora continua del rendimiento',
+          observations: '',
+          documents: ['Plan de mejora'],
           avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Amazon Fraud Detector',
-          observations:'' ,
-          documents: ['Informe de configuración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Blue Team',
-          observations:'' ,
-          documents: ['Informe de pruebas'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Control de accesos según contexto',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'DevSecOps',
-          observations:'' ,
-          documents: ['Guía de implementación'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'Feeds de inteligencia',
-          observations:'' ,
-          documents: ['Informe de inteligencia'],
-          avance: 0,
-          editar:'editar'
-        },
-        {
-          implemented: false,
-          implementationDate: '',
-          tarea: 'IAM Pipeline',
-          observations:'' ,
-          documents: ['Guía de configuración'],
-          avance: 0,
-          editar:'editar'
+          editar: 'editar'
         }
       ]
     }
