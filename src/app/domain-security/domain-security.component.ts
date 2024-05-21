@@ -15,77 +15,88 @@ export class DomainSecurityComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Multi-Factor Authentication',
+          tarea: 'Multi-Factor Authentication',
+          observations:'' ,
           documents: ['Documento de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'IAM Access Analyzer',
+          tarea: 'IAM Access Analyzer',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Security Hub: Buenas prácticas',
+          tarea: 'Security Hub: Buenas prácticas',
+          observations:'' ,
           documents: ['Informe de análisis'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'WAF con reglas gestionadas',
+          tarea: 'WAF con reglas gestionadas',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Evitar el uso de Root',
+          tarea: 'Evitar el uso de Root',
+          observations:'' ,
           documents: ['Informe de análisis'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'GuardDuty: Detección de amenazas',
+          tarea: 'GuardDuty: Detección de amenazas',
+          observations:'' ,
           documents: ['Documento de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'CloudTrail: Auditoría',
+          tarea: 'CloudTrail: Auditoría',
+          observations:'' ,
           documents: ['Informe de auditoría'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Limitar los Security Groups',
+          tarea: 'Limitar los Security Groups',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Asignar contactos de seguridad',
+          tarea: 'Asignar contactos de seguridad',
+          observations:'' ,
           documents: ['Documento de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Macie: Políticas de datos',
+          tarea: 'Macie: Políticas de datos',
+          observations:'' ,
           documents: ['Informe de políticas'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'AWS Trusted Advisor',
+          tarea: 'AWS Trusted Advisor',
+          observations:'' ,
           documents: ['Informe de análisis'],
           avance: 0
         }
@@ -97,42 +108,48 @@ export class DomainSecurityComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'KMS: Cifrado de Datos',
+          tarea: 'KMS: Cifrado de Datos',
+          observations:'' ,
           documents: ['Documento de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'GuardDuty: Investigar hallazgos/S3',
+          tarea: 'GuardDuty: Investigar hallazgos/S3',
+          observations:'' ,
           documents: ['Informe de investigación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Seguridad en Desarrollo',
+          tarea: 'Seguridad en Desarrollo',
+          observations:'' ,
           documents: ['Guía de seguridad en desarrollo'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Sin Secretos en Código',
+          tarea: 'Sin Secretos en Código',
+          observations:'' ,
           documents: ['Guía de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'SCPs: Políticas Organizacionales',
+          tarea: 'SCPs: Políticas Organizacionales',
+          observations:'' ,
           documents: ['Documento de políticas'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Segmentación de redes (VPCs)',
+          tarea: 'Segmentación de redes (VPCs)',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         }
@@ -144,77 +161,88 @@ export class DomainSecurityComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Anti-Malware / EDR',
+          tarea:'Anti-Malware / EDR',
+          observations:'' ,
           documents: ['Guía de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Análisis de flujos de red',
+          tarea: 'Análisis de flujos de red',
+          observations:'',
           documents: ['Informe de análisis'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Automatizar corrección de desvíos',
+          tarea: 'Automatizar corrección de desvíos',
+          observations:'',
           documents: ['Guía de automatización'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Automatizaciones en seguridad',
+          tarea: 'Automatizaciones en seguridad',
+          observations:'',
           documents: ['Informe de automatización'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'CIAM: Usuarios de aplicaciones',
+          tarea: 'CIAM: Usuarios de aplicaciones',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Security Champions',
+          tarea: 'Security Champions',
+          observations:'' ,
           documents: ['Plan de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Integración con SIEM/SOAR',
+          tarea: 'Integración con SIEM/SOAR',
+          observations:'' ,
           documents: ['Informe de integración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Modelado de Amenazas',
+          tarea: 'Modelado de Amenazas',
+          observations:'' ,
           documents: ['Informe de modelado'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Shield Advanced: Mitigación DDoS',
+          tarea: 'Shield Advanced: Mitigación DDoS',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Infraestructura como código',
+          tarea: 'Infraestructura como código',
+          observations:'' ,
           documents: ['Guía de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'WAF con reglas custom',
+          tarea: 'WAF con reglas custom',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         }
@@ -226,56 +254,64 @@ export class DomainSecurityComponent implements OnInit {
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Red Team',
+          tarea: 'Red Team',
+          observations:'' ,
           documents: ['Informe de pruebas'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Detective: Análisis de causa raíz',
+          tarea: 'Detective: Análisis de causa raíz',
+          observations:'' ,
           documents: ['Informe de análisis'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Amazon Fraud Detector',
+          tarea: 'Amazon Fraud Detector',
+          observations:'' ,
           documents: ['Informe de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Blue Team',
+          tarea: 'Blue Team',
+          observations:'' ,
           documents: ['Informe de pruebas'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Control de accesos según contexto',
+          tarea: 'Control de accesos según contexto',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'DevSecOps',
+          tarea: 'DevSecOps',
+          observations:'' ,
           documents: ['Guía de implementación'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'Feeds de inteligencia',
+          tarea: 'Feeds de inteligencia',
+          observations:'' ,
           documents: ['Informe de inteligencia'],
           avance: 0
         },
         {
           implemented: false,
           implementationDate: '',
-          observations: 'IAM Pipeline',
+          tarea: 'IAM Pipeline',
+          observations:'' ,
           documents: ['Guía de configuración'],
           avance: 0
         }
@@ -296,15 +332,13 @@ export class DomainSecurityComponent implements OnInit {
       task.documents.push(files[i].name);
     }
   }
-  updateAvance(task: any) {
+  updateAvance(event:string,task: any) {
     debugger
-    if (task.estado === 'enCurso' && (task.avance < 0 || task.avance > 100)) {
-      // Restringir el valor de avance a un rango válido si el estado es 'enCurso'
-      task.avance = Math.min(Math.max(task.avance, 0), 100);
-    } else if (task.estado === 'implementado') {
-      // Establecer el avance al 100% si el estado es 'implementado'
-      task.avance = 100;
-    }
+    if (event==="Curso")
+      {task.avance = 0;}
+    else
+    {task.avance = 100;}
+
   }
 
 }

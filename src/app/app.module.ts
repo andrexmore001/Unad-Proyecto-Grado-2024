@@ -12,7 +12,7 @@ import { DomainOperationalExcellenceComponent } from './domain-operational-excel
 import { AppLayoutComponent } from './app-layout/app-layout.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './auth.guard';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReportsComponent } from './reports/reports.component';
 
@@ -34,7 +34,8 @@ import { ReportsComponent } from './reports/reports.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

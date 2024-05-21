@@ -7,6 +7,7 @@
       <th>Fase</th>
       <th>Implementado</th>
       <th>Fecha de Implementación</th>
+      <th>Tarea</th>
       <th>Observaciones</th>
       <th>Documentos</th>
       <th>% de Avance</th>
@@ -18,17 +19,18 @@
         <td>{{ phaseTask.phase }}</td>
         <td>
           <label>
-            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="true" (change)="updateAvance(task)"> Implementado
+            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="true" (change)="updateAvance('Implementado',task)"> Implementado
           </label>
           <label>
-            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="false" (change)="updateAvance(task)"> En curso
+            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="false" (change)="updateAvance('Curso',task)"> En curso
           </label>
         </td>
         <td><input type="date" [value]="task.implementationDate"></td>
+        <td><input type="text" [value]="task.tarea"></td>
         <td><input type="text" [value]="task.observations"></td>
         <td><input type="file" multiple (change)="onFileSelected($event, task)"></td>
         <td>
-          <input *ngIf="!task.implemented" type="number" [value]="task.avance" min="0" max="100">
+          <input *ngIf="!task.implemented" type="number"  [(ngModel)]="task.avance" min="0" max="100">
           <span *ngIf="task.implemented">100%</span>
         </td>
       </tr>
