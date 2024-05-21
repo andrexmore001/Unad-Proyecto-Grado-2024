@@ -1,10 +1,11 @@
 <h2>Seguridad</h2>
 
+<h2>Costos</h2>
 <table>
   <thead>
     <tr>
       <th>Fase</th>
-      <th>Estado</th>
+      <th>Implementado</th>
       <th>Fecha de Implementación</th>
       <th>Observaciones</th>
       <th>Documentos</th>
@@ -12,20 +13,26 @@
     </tr>
   </thead>
   <tbody>
-    <ng-container *ngFor="let phaseTask of phaseTasks">
+    <ng-container *ngFor="let phaseTask of phaseTasksSecurity">
       <tr *ngFor="let task of phaseTask.tasks">
         <td>{{ phaseTask.phase }}</td>
         <td>
-          <label><input type="radio" name="estado{{task.observations}}" [value]="'implementado'" [value]="task.avance"> Implementado</label>
-          <label><input type="radio" name="estado{{task.observations}}" [value]="'enCurso'" [value]="task.avance"> En Curso</label>
+          <label>
+            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="true" (change)="updateAvance(task)"> Implementado
+          </label>
+          <label>
+            <input type="radio" name="status-{{ task.observations }}" [value]="task.implemented" [value]="false" (change)="updateAvance(task)"> En curso
+          </label>
         </td>
         <td><input type="date" [value]="task.implementationDate"></td>
         <td><input type="text" [value]="task.observations"></td>
-        <td><input type="file" multiple (change)="onFileSelected($event)"></td>
+        <td><input type="file" multiple (change)="onFileSelected($event, task)"></td>
         <td>
-          <input type="number" [value]="task.avance" min="0" max="100" (change)="updateAvance(task)">
+          <input *ngIf="!task.implemented" type="number" [value]="task.avance" min="0" max="100">
+          <span *ngIf="task.implemented">100%</span>
         </td>
       </tr>
     </ng-container>
   </tbody>
 </table>
+
